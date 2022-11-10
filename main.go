@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	fmt.Print("welcum tu shuwu, a shitty light \"shell\" written by ECHO")
+	fmt.Print("welcum tu shuwu, a shitty light \"shell\" written by ECHO\n")
 	reader := bufio.NewReader(os.Stdin)
 	for {
 		fmt.Print("nya? ")
