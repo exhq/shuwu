@@ -61,8 +61,10 @@ func runCommand(commandStr string) error {
 		}
 		return nil
 	case "cd":
-		if len(arrCommandStr) <= 2 {
+		if len(arrCommandStr) < 2 {
 			os.Chdir(gethome())
+		} else {
+			os.Chdir(arrCommandStr[1])
 		}
 		return nil
 	case "pwd":
@@ -112,7 +114,7 @@ func main() {
 	runshuwu(gethome())
 	reader := bufio.NewReader(os.Stdin)
 	for {
-		fmt.Print(envar["PS1"])
+		fmt.Print(envar["PS1"] + " ")
 		cmdString, err := reader.ReadString('\n')
 		if err != nil {
 			fmt.Fprintln(os.Stderr, err)
